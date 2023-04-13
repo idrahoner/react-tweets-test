@@ -1,5 +1,6 @@
 {
   "name": "react-tweets-test",
+  "homepage": "https://idrahoner.github.io/react-tweets-test/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
