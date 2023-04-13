@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/react-tweets-test/static/css/main.073c9b0a.css",
-    "main.js": "/react-tweets-test/static/js/main.25115984.js",
-    "static/js/787.a6058603.chunk.js": "/react-tweets-test/static/js/787.a6058603.chunk.js",
-    "static/media/logo.svg": "/react-tweets-test/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/react-tweets-test/static/css/main.d3fe27cf.css",
+    "main.js": "/react-tweets-test/static/js/main.54277093.js",
     "index.html": "/react-tweets-test/index.html",
-    "main.073c9b0a.css.map": "/react-tweets-test/static/css/main.073c9b0a.css.map",
-    "main.25115984.js.map": "/react-tweets-test/static/js/main.25115984.js.map",
-    "787.a6058603.chunk.js.map": "/react-tweets-test/static/js/787.a6058603.chunk.js.map"
+    "main.d3fe27cf.css.map": "/react-tweets-test/static/css/main.d3fe27cf.css.map",
+    "main.54277093.js.map": "/react-tweets-test/static/js/main.54277093.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.25115984.js"
+    "static/css/main.d3fe27cf.css",
+    "static/js/main.54277093.js"
   ]
 }
