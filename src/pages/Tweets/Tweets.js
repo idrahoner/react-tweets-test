@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllTweets, getAllTweets } from "../../redux";
+import {
+  selectAllTweets,
+  getAllTweets,
+  follow,
+  unfollow,
+  selectFollowings,
+} from "../../redux";
 
 const PAGINATION_LIMIT = 2;
 
@@ -9,7 +15,10 @@ export default function TweetsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleTweets, setVisibleTweets] = useState([]);
   const allTweets = useSelector(selectAllTweets);
+  const followList = useSelector(selectFollowings);
   const dispatch = useDispatch();
+
+  console.log("followList", followList);
 
   useEffect(() => {
     dispatch(getAllTweets());
@@ -40,6 +49,12 @@ export default function TweetsPage() {
             <p>{user}</p>
             <p>{tweets}</p>
             <p>{followers}</p>
+            <button type="button" onClick={() => dispatch(follow(id))}>
+              Follow
+            </button>
+            <button type="button" onClick={() => dispatch(unfollow(id))}>
+              Unfollow
+            </button>
           </li>
         ))}
       </ul>

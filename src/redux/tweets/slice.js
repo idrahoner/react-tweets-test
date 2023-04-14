@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getAllTweets } from "./operations";
 
-const tweetsInitialState = { entities: [], isLoading: false, error: null };
+const initialState = { entities: [], isLoading: false, error: null };
 
 const tweetsSlice = createSlice({
   name: "tweets",
-  initialState: tweetsInitialState,
+  initialState,
   extraReducers: (builder) =>
     builder
       .addCase(getAllTweets.pending, (state, action) => {
