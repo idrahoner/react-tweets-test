@@ -1,1 +1,1 @@
-export const selectFollowings = (state) => state.followings;
+export const selectFollowings = (state) => state.followings.followIdList;

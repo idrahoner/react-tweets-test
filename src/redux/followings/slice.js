@@ -7,8 +7,6 @@ const followingsSlice = createSlice({
   initialState,
   reducers: {
     follow(state, action) {
-      console.log("action.payload: ", action.payload);
-      console.log("state", state);
       return {
         ...state,
         followIdList: [...state.followIdList, action.payload],

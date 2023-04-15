@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectAllTweets,
+  selectFollowings,
   getAllTweets,
   follow,
   unfollow,
-  selectFollowings,
 } from "../../redux";
 
 const PAGINATION_LIMIT = 2;
@@ -15,10 +15,8 @@ export default function TweetsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleTweets, setVisibleTweets] = useState([]);
   const allTweets = useSelector(selectAllTweets);
-  const followList = useSelector(selectFollowings);
+  const followingsId = useSelector(selectFollowings);
   const dispatch = useDispatch();
-
-  console.log("followList", followList);
 
   useEffect(() => {
     dispatch(getAllTweets());
@@ -43,20 +41,25 @@ export default function TweetsPage() {
     <div>
       <Link to="/">To Home Page</Link>
       <ul>
-        {visibleTweets.map(({ id, user, tweets, followers, avatar }) => (
-          <li key={id}>
-            <img src={avatar} alt="user avatar" />
-            <p>{user}</p>
-            <p>{tweets}</p>
-            <p>{followers}</p>
-            <button type="button" onClick={() => dispatch(follow(id))}>
-              Follow
-            </button>
-            <button type="button" onClick={() => dispatch(unfollow(id))}>
-              Unfollow
-            </button>
-          </li>
-        ))}
+        {visibleTweets.map(
+          ({ id, user, tweets, followers, avatar, isFollowed }) => (
+            <li key={id}>
+              <img src={avatar} alt="user avatar" />
+              <p>{user}</p>
+              <p>{tweets}</p>
+              <p>{followers}</p>
+              {!followingsId.includes(id) ? (
+                <button type="button" onClick={() => dispatch(follow(id))}>
+                  Follow
+                </button>
+              ) : (
+                <button type="button" onClick={() => dispatch(unfollow(id))}>
+                  Following
+                </button>
+              )}
+            </li>
+          )
+        )}
       </ul>
       <button
         type="button"
