@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectAllTweets,
-  selectFollowings,
-  getAllTweets,
-  follow,
-  unfollow,
-} from "../../redux";
+import { selectAllTweets, getAllTweets, follow, unfollow } from "../../redux";
 
 const PAGINATION_LIMIT = 2;
 
@@ -15,7 +9,6 @@ export default function TweetsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleTweets, setVisibleTweets] = useState([]);
   const allTweets = useSelector(selectAllTweets);
-  const followingsId = useSelector(selectFollowings);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,7 +41,7 @@ export default function TweetsPage() {
               <p>{user}</p>
               <p>{tweets}</p>
               <p>{followers}</p>
-              {!followingsId.includes(id) ? (
+              {!isFollowed ? (
                 <button type="button" onClick={() => dispatch(follow(id))}>
                   Follow
                 </button>
