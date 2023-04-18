@@ -9,7 +9,7 @@ import {
 } from "../../redux";
 import { PAGINATION_LIMIT } from "../../helpers";
 
-import FilterSelector from "components/FilterSelector";
+// import FilterSelector from "components/FilterSelector";
 
 export default function TweetsPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,7 +34,7 @@ export default function TweetsPage() {
     <div>
       <Link to="/">To Home Page</Link>
       <br />
-      <FilterSelector />
+      {/* <FilterSelector /> */}
       <ul>
         {visibleTweets.map(
           ({ id, user, tweets, followers, avatar, isFollowed }) => (
