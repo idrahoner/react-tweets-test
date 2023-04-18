@@ -7,11 +7,11 @@ const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    changeFilterStatus(state, action) {
+    toggleFilterStatus(state, action) {
       return action.payload;
     },
   },
 });
 
-export const { changeFilterStatus } = filterSlice.actions;
+export const { toggleFilterStatus } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;

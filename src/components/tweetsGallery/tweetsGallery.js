@@ -1,3 +1,3 @@
-export default function tweetsGallery() {
-      return <h1>This is tweetsGallery</h1>
+export default function TweetsGallery() {
+      return <h1>This is TweetsGallery</h1>
     }

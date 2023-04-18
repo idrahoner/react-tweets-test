@@ -1,1 +1,1 @@
-export {default} from './tweetsGallery';
+export {default} from './TweetsGallery';

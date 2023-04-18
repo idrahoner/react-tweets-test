@@ -1,3 +1,3 @@
-export default function tweetsItem() {
-      return <h1>This is tweetsItem</h1>
+export default function TweetsItem() {
+      return <h1>This is TweetsItem</h1>
     }

@@ -1,3 +1,3 @@
-export default function loadMoreButton() {
-      return <h1>This is loadMoreButton</h1>
+export default function LoadMoreButton() {
+      return <h1>This is LoadMoreButton</h1>
     }

@@ -1,1 +1,1 @@
-export {default} from './filterSelector';
+export { default } from "./FilterSelector";

@@ -1,1 +1,1 @@
-export {default} from './tweetsItem';
+export {default} from './TweetsItem';

@@ -1,1 +1,1 @@
-export {default} from './loadMoreButton';
+export {default} from './LoadMoreButton';

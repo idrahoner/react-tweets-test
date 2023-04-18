@@ -3,20 +3,19 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCurrentTweets,
-  selectFilter,
   getAllTweets,
   follow,
   unfollow,
-  changeFilterStatus,
 } from "../../redux";
-import { FILTER_STATUS, PAGINATION_LIMIT } from "../../helpers";
+import { PAGINATION_LIMIT } from "../../helpers";
+
+import FilterSelector from "components/FilterSelector";
 
 export default function TweetsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isEndOfPage, setIsEndOfPage] = useState(false);
   const [visibleTweets, setVisibleTweets] = useState([]);
   const allTweets = useSelector(selectCurrentTweets);
-  const filterStatus = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,17 +34,7 @@ export default function TweetsPage() {
     <div>
       <Link to="/">To Home Page</Link>
       <br />
-      <select
-        name="filter"
-        value={filterStatus}
-        onChange={(event) => {
-          dispatch(changeFilterStatus(event.target.value));
-        }}
-      >
-        <option value={FILTER_STATUS.all}>All</option>
-        <option value={FILTER_STATUS.follow}>Follow</option>
-        <option value={FILTER_STATUS.followings}>Followings</option>
-      </select>
+      <FilterSelector />
       <ul>
         {visibleTweets.map(
           ({ id, user, tweets, followers, avatar, isFollowed }) => (
