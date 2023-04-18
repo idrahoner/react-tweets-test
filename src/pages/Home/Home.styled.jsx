@@ -5,7 +5,7 @@ export const NavButton = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${(p) => p.theme.sizes.buttonWidth};
+  width: 200px;
   height: ${(p) => p.theme.sizes.buttonHeight};
   padding-left: ${(p) => p.theme.space.ml}px;
   padding-right: ${(p) => p.theme.space.ml}px;
