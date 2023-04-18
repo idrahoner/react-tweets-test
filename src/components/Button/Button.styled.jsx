@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
-export const GoBackButton = styled(Link)`
+export const RegularButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${(p) => p.theme.sizes.buttonWidth};
+  min-width: ${(p) => p.theme.sizes.buttonWidth};
   height: ${(p) => p.theme.sizes.buttonHeight};
   padding-left: ${(p) => p.theme.space.ml}px;
   padding-right: ${(p) => p.theme.space.ml}px;
@@ -15,7 +14,8 @@ export const GoBackButton = styled(Link)`
 
   border: none;
   border-radius: ${(p) => p.theme.radii.button};
-  background-color: ${(p) => p.theme.colors.regularButtonBg};
+  background-color: ${({ theme, active }) =>
+    !active ? theme.colors.regularButtonBg : theme.colors.activeButtonBg};
   box-shadow: ${(p) => p.theme.shadows.button};
 
   font-family: ${(p) => p.theme.fonts.primary}, sans-serif;
@@ -23,13 +23,14 @@ export const GoBackButton = styled(Link)`
   font-size: ${(p) => p.theme.fontSize.m}px;
   line-height: ${(p) => p.theme.letterSpacing.regular};
   color: ${(p) => p.theme.colors.primaryText};
-  text-decoration: none;
   text-transform: uppercase;
 
   transition: background-color 250ms linear;
+  cursor: pointer;
 
   :hover,
   :focus {
-    background-color: ${(p) => p.theme.colors.activeButtonBg};
+    background-color: ${({ theme, active }) =>
+      active ? theme.colors.regularButtonBg : theme.colors.activeButtonBg};
   }
 `;
