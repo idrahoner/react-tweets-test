@@ -30,6 +30,8 @@ export const theme = Object.freeze({
     separatorWidth: "100%",
     separatorHeight: "8px",
     avatarFrame: "80px",
+    buttonWidth: "196px",
+    buttonHeight: "50px",
   },
   borders: [],
   borderWidth: [],

@@ -1,7 +1,9 @@
+import Button from "components/Button";
+
 export default function LoadMoreButton({ onLoadMore }) {
   return (
-    <button type="button" onClick={onLoadMore}>
+    <Button type="button" onClick={onLoadMore}>
       Load More
-    </button>
+    </Button>
   );
 }

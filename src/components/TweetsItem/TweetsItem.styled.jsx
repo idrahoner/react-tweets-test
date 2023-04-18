@@ -58,5 +58,6 @@ export const UserData = styled.div`
   font-size: ${(p) => p.theme.fontSize.l}px;
   font-weight: ${(p) => p.theme.fontWeight.medium};
   line-height: ${(p) => p.theme.letterSpacing.regular};
+  text-transform: uppercase;
   color: ${(p) => p.theme.colors.accent};
 `;

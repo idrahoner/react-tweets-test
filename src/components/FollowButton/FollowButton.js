@@ -1,20 +1,21 @@
 import { useDispatch } from "react-redux";
 import { follow, unfollow } from "../../redux";
+import Button from "components/Button";
 
 export default function FollowButton({ id, isFollowed }) {
   const dispatch = useDispatch();
 
   if (!isFollowed) {
     return (
-      <button type="button" onClick={() => dispatch(follow(id))}>
+      <Button type="button" onClick={() => dispatch(follow(id))}>
         Follow
-      </button>
+      </Button>
     );
   }
 
   return (
-    <button type="button" onClick={() => dispatch(unfollow(id))}>
+    <Button type="button" onClick={() => dispatch(unfollow(id))} active>
       Following
-    </button>
+    </Button>
   );
 }

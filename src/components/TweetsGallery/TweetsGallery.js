@@ -4,7 +4,7 @@ import { selectCurrentTweets } from "../../redux";
 import { PAGINATION_LIMIT } from "helpers";
 import TweetsItem from "components/TweetsItem";
 import LoadMoreButton from "components/LoadMoreButton";
-import { Gallery } from "./TweetsGallery.styled";
+import { GalleryContainer, Gallery } from "./TweetsGallery.styled";
 
 export default function TweetsGallery() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,13 +23,13 @@ export default function TweetsGallery() {
   const handleLoadMore = () => setCurrentPage((pervState) => (pervState += 1));
 
   return (
-    <>
+    <GalleryContainer>
       <Gallery>
         {visibleTweets.map((tweet) => (
           <TweetsItem key={tweet.id} {...tweet} />
         ))}
       </Gallery>
       {!isEndOfPage && <LoadMoreButton onLoadMore={handleLoadMore} />}
-    </>
+    </GalleryContainer>
   );
 }

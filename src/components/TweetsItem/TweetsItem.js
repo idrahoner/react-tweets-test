@@ -29,8 +29,8 @@ export default function TweetsItem({
         </AvatarFrame>
       </Separator>
       <UserData>
-        <p>{tweets} TWEETS</p>
-        <p>{followers} FOLLOWERS</p>
+        <p>{tweets} tweets</p>
+        <p>{followers} followers</p>
       </UserData>
       <FollowButton id={id} isFollowed={isFollowed} />
     </TweetItem>
