@@ -30,7 +30,7 @@ export default function TweetsItem({
       </Separator>
       <UserData>
         <p>{formatNumber(tweets)} tweets</p>
-        <p>{formatNumber(followers)} followers</p>
+        <p>{formatNumber(isFollowed ? followers + 1 : followers)} followers</p>
       </UserData>
       <FollowButton id={id} isFollowed={isFollowed} />
     </TweetItem>

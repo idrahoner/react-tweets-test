@@ -5,7 +5,7 @@ export const GoBackButton = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 250px;
   height: ${(p) => p.theme.sizes.buttonHeight};
   padding-left: ${(p) => p.theme.space.ml}px;
   padding-right: ${(p) => p.theme.space.ml}px;
