@@ -1,4 +1,5 @@
 import Select from "react-select";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { toggleFilterStatus } from "../../redux";
 import { FILTER_STATUS } from "helpers";
@@ -12,6 +13,10 @@ const options = [
 
 export default function FilterSelector() {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(toggleFilterStatus(FILTER_STATUS.all));
+  }, [dispatch]);
 
   return (
     <FilterContainer>

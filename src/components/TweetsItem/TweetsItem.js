@@ -8,13 +8,13 @@ import {
   UserAvatar,
   UserData,
 } from "./TweetsItem.styled";
+import { formatNumber } from "helpers";
 import goitLogo from "images/goitLogo.png";
 import tweetsLogo from "images/tweetsLogo.png";
 
 export default function TweetsItem({
   id,
   avatar,
-  user,
   tweets,
   followers,
   isFollowed,
@@ -29,8 +29,8 @@ export default function TweetsItem({
         </AvatarFrame>
       </Separator>
       <UserData>
-        <p>{tweets} tweets</p>
-        <p>{followers} followers</p>
+        <p>{formatNumber(tweets)} tweets</p>
+        <p>{formatNumber(followers)} followers</p>
       </UserData>
       <FollowButton id={id} isFollowed={isFollowed} />
     </TweetItem>

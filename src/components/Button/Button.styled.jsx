@@ -22,9 +22,11 @@ export const RegularButton = styled.button`
   font-weight: ${(p) => p.theme.fontWeight.bold};
   font-size: ${(p) => p.theme.fontSize.m}px;
   line-height: ${(p) => p.theme.letterSpacing.regular};
+  color: ${(p) => p.theme.colors.primaryText};
   text-transform: uppercase;
 
   transition: background-color 250ms linear;
+  cursor: pointer;
 
   :hover,
   :focus {

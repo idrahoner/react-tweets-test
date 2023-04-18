@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getAllTweets } from "../../redux";
 
 import FilterSelector from "components/FilterSelector";
 import TweetsGallery from "components/TweetsGallery";
+import { GoBackButton } from "./Tweets.styled";
 
 export default function TweetsPage() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export default function TweetsPage() {
 
   return (
     <div>
-      <Link to="/">To Home Page</Link>
+      <GoBackButton to="/">To Home Page</GoBackButton>
       <br />
       <FilterSelector />
       <TweetsGallery />
