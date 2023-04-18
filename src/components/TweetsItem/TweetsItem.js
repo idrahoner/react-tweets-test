@@ -1,4 +1,15 @@
 import FollowButton from "components/FollowButton";
+import {
+  TweetItem,
+  GoitLogo,
+  TweetsLogo,
+  Separator,
+  AvatarFrame,
+  UserAvatar,
+  UserData,
+} from "./TweetsItem.styled";
+import goitLogo from "images/goitLogo.png";
+import tweetsLogo from "images/tweetsLogo.png";
 
 export default function TweetsItem({
   id,
@@ -9,12 +20,19 @@ export default function TweetsItem({
   isFollowed,
 }) {
   return (
-    <li>
-      <img src={avatar} alt="user avatar" />
-      <p>{user}</p>
-      <p>{tweets}</p>
-      <p>{followers}</p>
+    <TweetItem>
+      <GoitLogo src={goitLogo} alt="goit logo" />
+      <TweetsLogo src={tweetsLogo} alt="tweets logo" />
+      <Separator>
+        <AvatarFrame>
+          <UserAvatar src={avatar} alt="user avatar" />
+        </AvatarFrame>
+      </Separator>
+      <UserData>
+        <p>{tweets} TWEETS</p>
+        <p>{followers} FOLLOWERS</p>
+      </UserData>
       <FollowButton id={id} isFollowed={isFollowed} />
-    </li>
+    </TweetItem>
   );
 }
