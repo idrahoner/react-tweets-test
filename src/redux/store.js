@@ -13,6 +13,7 @@ import storage from "redux-persist/lib/storage";
 
 import { tweetsReducer } from "./tweets/slice";
 import { followingsReducer } from "./followings/slice";
+import { filterReducer } from "./filter/slice";
 
 const persistConfig = {
   key: "followings",
@@ -25,7 +26,11 @@ const followingsPersistReducer = persistReducer(
 );
 
 export const store = configureStore({
-  reducer: { tweets: tweetsReducer, followings: followingsPersistReducer },
+  reducer: {
+    tweets: tweetsReducer,
+    followings: followingsPersistReducer,
+    filter: filterReducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

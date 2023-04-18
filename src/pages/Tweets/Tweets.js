@@ -2,20 +2,20 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectAllTweets,
-  selectFollowings,
+  selectCurrentTweets,
   getAllTweets,
   follow,
   unfollow,
 } from "../../redux";
+import { PAGINATION_LIMIT } from "../../helpers";
 
-const PAGINATION_LIMIT = 2;
+import FilterSelector from "components/FilterSelector";
 
 export default function TweetsPage() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [isEndOfPage, setIsEndOfPage] = useState(false);
   const [visibleTweets, setVisibleTweets] = useState([]);
-  const allTweets = useSelector(selectAllTweets);
-  const followingsId = useSelector(selectFollowings);
+  const allTweets = useSelector(selectCurrentTweets);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,23 +23,18 @@ export default function TweetsPage() {
   }, [dispatch]);
 
   useEffect(() => {
-    const getVisibleTweets = (page) => {
-      const endPortion = PAGINATION_LIMIT * page;
-      const currentPortion = allTweets.slice(0, endPortion);
+    const endLimit = PAGINATION_LIMIT * currentPage;
+    const visibleTweetsList = allTweets.slice(0, endLimit);
 
-      if (currentPortion.length === 0) {
-        return;
-      }
-
-      setVisibleTweets(currentPortion);
-    };
-
-    getVisibleTweets(currentPage);
+    setVisibleTweets(visibleTweetsList);
+    setIsEndOfPage(visibleTweetsList.length === allTweets.length);
   }, [currentPage, allTweets]);
 
   return (
     <div>
       <Link to="/">To Home Page</Link>
+      <br />
+      <FilterSelector />
       <ul>
         {visibleTweets.map(
           ({ id, user, tweets, followers, avatar, isFollowed }) => (
@@ -48,7 +43,7 @@ export default function TweetsPage() {
               <p>{user}</p>
               <p>{tweets}</p>
               <p>{followers}</p>
-              {!followingsId.includes(id) ? (
+              {!isFollowed ? (
                 <button type="button" onClick={() => dispatch(follow(id))}>
                   Follow
                 </button>
@@ -61,12 +56,14 @@ export default function TweetsPage() {
           )
         )}
       </ul>
-      <button
-        type="button"
-        onClick={() => setCurrentPage((pervState) => (pervState += 1))}
-      >
-        Load more
-      </button>
+      {!isEndOfPage && (
+        <button
+          type="button"
+          onClick={() => setCurrentPage((pervState) => (pervState += 1))}
+        >
+          Load more
+        </button>
+      )}
     </div>
   );
 }
